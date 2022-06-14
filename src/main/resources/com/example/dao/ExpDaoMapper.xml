@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.dao.ExpDao">
+    <select id="showById" parameterType="java.lang.String" resultType="WorkExperience">
+        select * from experience where employee_id=#{id}
+    </select>
+
+    <insert id="add" parameterType="WorkExperience">
+        insert into experience values(#{id},#{start_date},#{company},#{department},#{post},#{certificate},#{employee_id})
+    </insert>
+
+    <delete id="del" parameterType="java.lang.String">
+        delete from experience where id=#{id}
+    </delete>
+</mapper>

@@ -1,0 +1,20 @@
+body {
+    background: linear-gradient(#E0F8E6, #FFE6E6)
+}
+
+ul {
+    background: linear-gradient(#F7BE81, #58FAAC)
+
+}
+
+#footer {
+    background:linear-gradient(#848484, #D0F5A9)
+}
+
+.modal-content{
+
+    background-image: url("../img/d.png");
+
+    background-size: auto;
+
+}

@@ -1,0 +1,28 @@
+server:
+  port: 8989
+  servlet:
+    context-path: /demo
+    jsp:
+      init-parameters:
+        development: true
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/duke?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL
+    username: root
+    password: 123456
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+
+
+mybatis:
+  mapper-locations: classpath:com/example/dao/*Mapper.xml
+  type-aliases-package: com.example.entity
+
+

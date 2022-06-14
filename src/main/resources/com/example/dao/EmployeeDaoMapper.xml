@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.dao.EmployeeDao">
+    <select id="showAll" resultType="Employee">
+              select * from employee
+    </select>
+
+    <select id="showAllEmployee" parameterType="java.lang.String" resultType="Employee">
+              select * from employee limit  ${(page-1)*rows},#{rows}
+    </select>
+
+    <select id="selectOne" resultType="Employee" parameterType="java.lang.String">
+        select * from employee where id=#{id}
+    </select>
+
+    <insert id="add" parameterType="Employee">
+        insert into employee values(#{id},#{username},#{password},#{realname},#{sex},#{residence_address},#{education},#{is_marry},#{native_place},#{edu_school},#{major},#{complete_edu_time},#{working_years},#{photo},#{now_address},#{phone},#{emergency_phone},#{emergency_person},#{entry_time},#{department},#{post},#{id_card},#{remark})
+    </insert>
+
+    <delete id="del" parameterType="java.lang.String">
+        delete from employee where id=#{id}
+    </delete>
+
+    <update id="update" parameterType="Employee">
+        update employee
+        <set>
+            <if test="username!=null">username=#{username},</if>
+            <if test="password!=null">password=#{password},</if>
+            <if test="realname!=null">realname=#{realname},</if>
+            <if test="sex!=null">sex=#{sex},</if>
+            <if test="residence_address!=null">residence_address=#{residence_address},</if>
+            <if test="education!=null">education=#{education},</if>
+            <if test="is_marry!=null">is_marry=#{is_marry},</if>
+            <if test="native_place!=null">native_place=#{native_place},</if>
+            <if test="edu_school!=null">edu_school=#{edu_school},</if>
+            <if test="major!=null">major=#{major},</if>
+            <if test="complete_edu_time!=null">complete_edu_time=#{complete_edu_time},</if>
+            <if test="working_years!=null">working_years=#{working_years},</if>
+            <if test="photo!=null">photo=#{photo},</if>
+            <if test="now_address!=null">now_address=#{now_address},</if>
+            <if test="phone!=null">phone=#{phone},</if>
+            <if test="emergency_phone!=null">emergency_phone=#{emergency_phone},</if>
+            <if test="emergency_person!=null">emergency_person=#{emergency_person},</if>
+            <if test="entry_time!=null">entry_time=#{entry_time},</if>
+            <if test="department!=null">department=#{department},</if>
+            <if test="post!=null">post=#{post},</if>
+            <if test="id_card!=null">id_card=#{id_card},</if>
+            <if test="remark!=null">remark=#{remark}</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <select id="totalcount" resultType="int">
+        select  count(*) from  employee
+    </select>
+
+
+</mapper>
